@@ -4,7 +4,6 @@
 - Clock Period : 2.4 ns
 - Total Latency : 9166 cycles
 - RTL Area (03_gate_sim) : 491881.4081  μ𝑚<sup>2 </sup>
-- Memory Area :68199.14844 μ𝑚<sup>2</sup>
 - Performance : (Total Cycle x Clock Period)<sup>3</sup> x Core area = 4.907 E+21
 - Rank : 3 / 127
 
