@@ -2,10 +2,10 @@
 ## single core CPU with domain-specific IP
 ### Performance
 - Clock Period : 2.4 ns
-- Total Latency : 9166 cycles
+- Total Latency : 40303 cycles
 - RTL Area (03_gate_sim) : 491881.4081  μ𝑚<sup>2 </sup>
 - Performance : (Total Cycle x Clock Period)<sup>3</sup> x Core area = 4.907 E+21
-- Rank : 3 / 127
+- Rank : 2 / 173
 
 ![截圖 2025-01-03 下午11 51 06](https://github.com/user-attachments/assets/8ac81f9e-4e8c-49d6-90eb-35957ff65693)
 ![截圖 2025-01-03 下午11 50 52](https://github.com/user-attachments/assets/ed5e634f-de7e-4f8f-9df6-e9441d23246d)
