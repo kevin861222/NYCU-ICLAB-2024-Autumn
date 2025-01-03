@@ -1,4 +1,4 @@
-# NYCU-ICLAB-2024-Fall-場外篇
+# NYCU-ICLAB-2024-Autumn-場外篇
 ## single core CPU with domain-specific IP
 ### Performance
 - Clock Period : 2.4 ns
