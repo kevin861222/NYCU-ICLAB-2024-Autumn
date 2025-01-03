@@ -11,7 +11,6 @@
 
 ![截圖 2025-01-03 下午11 50 52](https://github.com/user-attachments/assets/ed5e634f-de7e-4f8f-9df6-e9441d23246d)
 
-
 ### 實驗概述
 相較往年是一個非常佛心的 final project，主要就是實現以下四個功能。
 1. AXI 讀寫 DRAM 。
@@ -23,22 +22,13 @@
 ### 實驗評論
 1. 這是一個看起來非常簡單，實際上也非常簡單的實驗。
 2. 學不太到東西。
-3. 這屆學生面試要擔心沒東西放。
+3. 這屆學生面試可能會擔心沒東西放。
 
+### 碎嘴
+我大概花了五天時間完成這份實驗，
 
 ### Tips
 
 
 ### APR
 
-![截圖 2024-09-26 上午8 05 05](https://github.com/user-attachments/assets/1fba8da0-2394-4905-9736-5be39f6ff79c)
-
-
-![截圖 2024-09-26 上午8 05 17](https://github.com/user-attachments/assets/26a90b92-c60b-4a5e-90d7-b6df262d8e62)
-
-
-
-
-
-### 其他叮囑
-1. 最後一哩路，加油。
