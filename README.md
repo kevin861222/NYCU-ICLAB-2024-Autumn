@@ -1,5 +1,5 @@
 # NYCU-ICLAB-2024-Autumn-場外篇
-## single core CPU with domain-specific IP
+## Image Signal Processor (ISP)
 ### Performance
 - Clock Period : 2.4 ns
 - Total Latency : 40303 cycles
@@ -13,12 +13,16 @@
 
 
 ### 實驗概述
-
+相較往年是一個非常佛心的 final project，主要就是實現以下四個功能。
+1. AXI 讀寫 DRAM 。
+2. 瑣碎但簡單的運算（加減、除法、比大小）。
+3. 切 pipeline 壓低 Clock Period 。
+4. 預判圖片內資訊（後面詳述），減少 DRAM 讀寫需求。
 
 
 ### 實驗評論
-1. 再次感謝這門課讓我接觸到這些知識。
-2. 驗證是門大學問，CPU 會碰到的問題太多了，要設計出嚴密的 pattern 比想像中花時間，軟體能力在這時候顯現出重要性。
+這是一個看起來非常簡單，實際上也非常簡單的實驗，學不太到東西。
+
 
 ### Tips
 
