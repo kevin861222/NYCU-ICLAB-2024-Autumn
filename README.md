@@ -146,3 +146,6 @@ Bonbodii  -> [GitHub Home Page](https://github.com/Bonbodii) <-
 
 chance-chhong -> [GitHub Home Page](https://github.com/chance-chhong) <-
 
+### 備註
+
+RANK 是我自己換算出來的
