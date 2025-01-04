@@ -142,7 +142,7 @@ end
 ### 鳴謝
 特別感謝 
 
-Bonbodii  [GitHub Home Page](https://github.com/Bonbodii)
+Bonbodii  -> [GitHub Home Page](https://github.com/Bonbodii) <-
 
-chance-chhong [GitHub Home Page](https://github.com/chance-chhong)
+chance-chhong -> [GitHub Home Page](https://github.com/chance-chhong) <-
 
