@@ -146,6 +146,10 @@ Bonbodii  -> [GitHub Home Page](https://github.com/Bonbodii) <-
 
 chance-chhong -> [GitHub Home Page](https://github.com/chance-chhong) <-
 
+Anonymous A -> [GitHub Home Page](https://github.com/aelog134256) <- 
+
+Allen Kuan -> [GitHub Home Page](https://github.com/c20kyo1827/) <-
+
 ### 備註
 
 RANK 是我自己換算出來的
