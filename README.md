@@ -140,5 +140,9 @@ end
 不過這種情況應該只有 iclab 會遇到，不太實際。
 
 ### 鳴謝
-感謝 
+特別感謝 
+
+Bonbodii  [GitHub Home Page](https://github.com/Bonbodii)
+
+chance-chhong [GitHub Home Page](https://github.com/chance-chhong)
 
