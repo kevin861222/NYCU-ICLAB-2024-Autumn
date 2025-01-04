@@ -79,7 +79,7 @@ end
 
 ```verilog
 always @(posedge clk) begin
-   if (invalid)
+   if (in_valid)
       in_pic_no_q <= in_pic_no;
 end
 
@@ -88,8 +88,55 @@ always @(posedge clk) begin
 end
 ```
 
-此處的程式很簡潔，但是合成出來的電路卻很大一包，" info[in_pic_no_q] <= info_n; "
+此處的程式很簡潔，但是合成出來的電路卻很大一包，" info[in_pic_no_q] <= info_n; " 隱含由比較器構成的索引功能，相當於
+```verilog
+always @(posedge clk) begin
+   for (int i = 0; i < 16; i++) begin
+       if (in_pic_no_q == i) begin
+           info[i] <= info_n;
+       end
+   end
+end
+```
+
+此處的 "in_pic_no_q == i" 也可用同樣的方法擋一顆 DFF。
 
 
-### APR
+3. critical path 發生在運算單元上。
+
+```verilog
+always @(posedge clk) begin
+   div_result <= div_in / 3 ;
+end
+```
+
+發生在這種地方就非常頭痛了，能用 DW_ip 的話就直接叫一顆 multi-stages 除法器，但偏偏這次不能用，就只能手刻 pipeline 除法器了。
+
+除法、乘法可以切 pipeline ，若是加減法，可以改成較低位元的運算，以多個 cycle 完成。
+
+4. critical path 發生在 input/output。
+
+通常都是切到走火入魔才會遇到這種問題。
+
+```verilog
+always @(posedge clk) begin
+   if (awready_s_inf)
+      // do something
+end
+```
+
+這邊的 awready_s_inf 是 input 訊號，會有 0.5T input slack，解法就是找其他等價訊號替代掉 awready_s_inf 。
+
+```verilog
+always @(posedge clk) begin
+   awvalid_q <= awvalid;
+   awvalid_qq <= awvalid_q;
+end
+always @(posedge clk) begin
+   if (awvalid_qq)
+      // do something
+end
+```
+不過這種情況應該只有 iclab 會遇到，不太實際。
+
 
