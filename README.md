@@ -152,4 +152,5 @@ Allen Kuan -> [GitHub Home Page](https://github.com/c20kyo1827/) <-
 
 ### 備註
 
-RANK 是我自己換算出來的
+1. RANK 是我自己換算出來的
+2. 2.4ns 版本 critical path 長在加法器上，繼續切可以壓到 1.8 ns ，但是控制訊號也要爆改，我就玩玩沙，差不多就行了。
