@@ -38,10 +38,57 @@ Average of Min and Max in the Picture : 分別找出 R , G , B 中的最大值�
 
 ### Tips
 1. 資料共用
+除非遇上 Auto Exposure 導致圖片內元素改變，否則 Average of Min and Max in the Picture 、 Auto Focus 的答案不會更動。因此只在倍率改變時訪問 DRAM ，並一次計算出三種功能的答案，將其存放於 DFF 中。
 
+備註：每張圖片首次訪問若不是 Auto Exposure 功能，則以 Auto Exposure x1 的方式訪問。
    
-3. 預判 0 圖
-4. 切爛
+2. 預判 0 圖
+
+一張圖片遇上多次 x0.5 / x0.25 後會將所有元素歸零，此時不論如何所有功能的答案都是 0 ，將不再需要訪問 DRAM 。
+
+4. 解 critical path
+Clock Period 決勝負，把所有能切的東西切一遍就完事了。
+
+此部分比較瑣碎，講個大概意思有到就好。
+
+1. critical path 發生在 cnt 判斷式上
+'''verilog
+always @(posedge clk) begin
+   if (cnt == 30) begin
+     // do something
+   end else begin 
+     // do something
+   end
+end
+'''
+
+可以改成這樣
+
+'''verilog
+always @(posedge clk) cnt_is_30 <= (cny == 29);
+always @(posedge clk) begin
+   if (cnt_is_30) begin
+     // do something
+   end else begin 
+     // do something
+   end
+end
+'''
+
+2. critical path 發生在 demux / mux 上
+
+'''verilog
+always @(posedge clk) begin
+   if (invalid)
+      in_pic_no_q <= in_pic_no;
+end
+
+always @(posedge clk) begin
+   info[in_pic_no_q] <= info_n;
+end
+'''
+
+此處的程式很簡潔，但是合成出來的電路卻很大一包，" info[in_pic_no_q] <= info_n; "
 
 
 ### APR
