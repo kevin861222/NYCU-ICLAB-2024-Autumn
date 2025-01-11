@@ -46,12 +46,12 @@ Average of Min and Max in the Picture : 分別找出 R , G , B 中的最大值�
 
 一張圖片遇上多次 x0.5 / x0.25 後會將所有元素歸零，此時不論如何所有功能的答案都是 0 ，將不再需要訪問 DRAM 。
 
-4. 解 critical path
+3. 解 critical path
 Clock Period 決勝負，把所有能切的東西切一遍就完事了。
 
-此部分比較瑣碎，講個大概意思有到就好。
+此部分情況繁瑣，無法點出所有狀況，以下是幾個比較常見的問題點：
 
-1. critical path 發生在 cnt 判斷式上
+#### 1. critical path 發生在 cnt 判斷式上
 ```verilog
 always @(posedge clk) begin
    if (cnt == 30) begin
@@ -75,7 +75,7 @@ always @(posedge clk) begin
 end
 ```
 
-2. critical path 發生在 demux / mux 上
+#### 2. critical path 發生在 demux / mux 上
 
 ```verilog
 always @(posedge clk) begin
@@ -102,7 +102,7 @@ end
 此處的 "in_pic_no_q == i" 也可用同樣的方法擋一顆 DFF。
 
 
-3. critical path 發生在運算單元上。
+#### 3. critical path 發生在運算單元上。
 
 ```verilog
 always @(posedge clk) begin
@@ -114,7 +114,7 @@ end
 
 除法、乘法可以切 pipeline ，若是加減法，可以改成較低位元的運算，以多個 cycle 完成。
 
-4. critical path 發生在 input/output。
+#### 4. critical path 發生在 input/output。
 
 通常都是切到走火入魔才會遇到這種問題。
 
@@ -139,7 +139,7 @@ end
 ```
 不過這種情況應該只有 iclab 會遇到，不太實際。
 
-5. critical path 發生在 input data buffer。
+#### 5. critical path 發生在 input data buffer。
 _此處的 data buffer 代表用於保存 input 資訊的 DFF_
 
 ```verilog
