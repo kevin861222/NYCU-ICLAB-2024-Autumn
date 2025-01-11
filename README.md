@@ -139,6 +139,41 @@ end
 ```
 不過這種情況應該只有 iclab 會遇到，不太實際。
 
+5. critical path 發生在 input data buffer。
+_此處的 data buffer 代表用於保存 input 資訊的 DFF_
+
+```verilog
+reg [7:0] in_data_buffer [0:15];
+reg [3:0] in_cnt;
+always @(posedge clk or negedge rst_n) begin
+   if (~rst_n) 
+      in_cnt <= 0;
+   else if (in_valid)
+      in_cnt <= in_cnt+1;
+   else
+      in_cnt <= 0;
+end
+
+always @(posedge clk)begin
+   if (in_valid)
+      in_data_buffer[in_cnt] <= in_data;
+end
+```
+
+可以用 shift reg 來取代，但當資料過多時不適合使用，會造成 power 負擔。
+
+```verilog
+reg [7:0] in_data_buffer [0:15];
+int i;
+always @(posedge clk)begin
+   if (in_valid)
+      in_data_buffer[15] <= in_data;
+      for (i=0;i<15;i=i+1;) begin
+         in_data_buffer[i] <= in_data_buffer[i+1];
+      end
+end
+```
+
 ### 鳴謝
 特別感謝 
 
@@ -153,4 +188,4 @@ Allen Kuan -> [GitHub Home Page](https://github.com/c20kyo1827/) <-
 ### 備註
 
 1. RANK 是我自己換算出來的
-2. 2.4ns 版本 critical path 長在加法器上，繼續切可以壓到 1.8 ns ，但是控制訊號也要爆改，我就玩玩沙，差不多就行了。
+2. 2.4ns 版本 critical path 長在加法器上，繼續切可以壓到 1.8 ns ，但是我該寫論文了。
