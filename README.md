@@ -166,11 +166,12 @@ end
 reg [7:0] in_data_buffer [0:15];
 int i;
 always @(posedge clk)begin
-   if (in_valid)
+   if (in_valid) begin
       in_data_buffer[15] <= in_data;
       for (i=0;i<15;i=i+1;) begin
          in_data_buffer[i] <= in_data_buffer[i+1];
       end
+   end
 end
 ```
 
